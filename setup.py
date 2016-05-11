@@ -22,6 +22,6 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
     include_package_data=True,
-    packages=find_packages(),
+    packages=find_packages(exclude=['test_validacao.py']),
     install_requires=[],
 )
