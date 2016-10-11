@@ -10,7 +10,9 @@ def valida_cpf_cnpj(cpf_cnpj):
     return True
 
 
-def valida_cpf(cpf):
+def valida_cpf(cpf=''):
+    if not cpf: cpf = ''
+
     def calcula_primeiro_digito(cpf):
         soma = int(cpf[0]) * 10 + \
                int(cpf[1]) * 9 + \
@@ -73,6 +75,7 @@ def valida_cpf(cpf):
 
 
 def valida_cnpj(cnpj):
+    if not cnpj: cnpj = ''
     def calcula_primeiro_digito(cnpj):
         soma = int(cnpj[0]) * 5 + \
                int(cnpj[1]) * 4 + \
@@ -119,14 +122,12 @@ def valida_cnpj(cnpj):
     if re.match(r'^\d{2}.\d{3}.\d{3}/\d{4}-\d{2}$', cnpj) == None and re.match(r'^\d{14}$', cnpj) == None:
         return False
 
-
     # Extrai somente os números de uma string
     cnpj = ''.join(re.findall(r'\d', cnpj))
 
     # Verifique se possui os 14 dígitos iguais, pois esse padrão passa na validação do dígito verificador
     if re.match(r'^0{14}|1{14}|2{14}|3{14}|4{14}|5{14}|6{14}|7{14}|8{14}|9{14}$', cnpj) != None:
         return False
-
 
     # calcula os dígitos verificadores
     digito1 = calcula_primeiro_digito(cnpj)
