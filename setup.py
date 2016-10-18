@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pyvalidation',
-    version='1.0.1',
+    version='1.0.2',
     url='https://github.com/rodrigorodriguescosta/pyvalidation',
     author='Rodrigo Rodrigues',
     author_email='rodrigorodriguescosta@gmail.com',
