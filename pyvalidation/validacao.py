@@ -12,6 +12,8 @@ def valida_cpf_cnpj(cpf_cnpj):
 
 def valida_cpf(cpf=''):
     if not cpf: cpf = ''
+    if not isinstance(cpf, str):
+       return False
 
     def calcula_primeiro_digito(cpf):
         soma = int(cpf[0]) * 10 + \
@@ -76,6 +78,9 @@ def valida_cpf(cpf=''):
 
 def valida_cnpj(cnpj):
     if not cnpj: cnpj = ''
+    if not isinstance(cnpj, str):
+       return False
+
     def calcula_primeiro_digito(cnpj):
         soma = int(cnpj[0]) * 5 + \
                int(cnpj[1]) * 4 + \

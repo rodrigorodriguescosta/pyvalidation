@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from decimal import Decimal
+
 from pyvalidation.validacao import valida_cpf, valida_cnpj
 
 __author__ = 'rodrigo'
@@ -35,6 +37,7 @@ def test_valida_cpf():
     assert valida_cpf('') == False
     assert valida_cpf('dddd') == False
     assert valida_cpf('pppppp') == False
+    assert valida_cpf(Decimal('1')) == False
 
 
 def test_valida_cnpj():
@@ -77,3 +80,4 @@ def test_valida_cnpj():
     assert valida_cnpj(None) == False
     assert valida_cnpj('') == False
     assert valida_cnpj('iiiiikkk') == False
+    assert valida_cnpj(Decimal('1')) == False
